@@ -34,6 +34,9 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # Display normalized fruit table
 streamlit.dataframe(fruityvice_normalized)
+#don't run anything past here while we trouble shoot
+streamlit.stop()
+
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
